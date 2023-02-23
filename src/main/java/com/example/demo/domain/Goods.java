@@ -18,6 +18,7 @@ import java.util.Date;
 @Data
 //@AllArgsConstructor
 //@NoArgsConstructor
+
 public class Goods {
     @Id
     @Column(name = "ID")
