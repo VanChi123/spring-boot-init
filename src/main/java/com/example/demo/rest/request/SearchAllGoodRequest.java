@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.example.demo.util.StringUtil.stringIsNullOrEmpty;
-import static com.example.demo.util.StringUtil.stringIsNullOrEmptyBlank;
+import static com.example.demo.util.common.util.StringUtil.stringIsNullOrEmptyBlank;
 
 @Data
 @AllArgsConstructor

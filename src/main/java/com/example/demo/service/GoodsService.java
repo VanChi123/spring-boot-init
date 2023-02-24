@@ -3,17 +3,21 @@ package com.example.demo.service;
 import com.example.demo.domain.Goods;
 import com.example.demo.domain.Goods_;
 import com.example.demo.dto.criteria_test.GoodsCriteria;
+import com.example.demo.dto.dto.GoodsDTO;
 import com.example.demo.repository.GoodsRepository;
+import com.example.demo.rest.request.SearchAllGoodSpecRequest;
+import com.example.demo.rest.validator.GoodsValidator;
+import com.example.demo.rest.validator.ServiceException;
+import com.example.demo.util.BusinessException;
+import com.example.demo.util.enums.ResponseStatusCodeEnum;
 import io.github.jhipster.service.QueryService;
-import io.github.jhipster.service.filter.StringFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import static com.example.demo.util.StringUtil.stringIsNullOrEmptyBlank;
+import static com.example.demo.util.common.util.StringUtil.stringIsNullOrEmptyBlank;
 
 @Service
 //@AllArgsConstructor
@@ -21,6 +25,8 @@ import static com.example.demo.util.StringUtil.stringIsNullOrEmptyBlank;
 @RequiredArgsConstructor
 public class GoodsService extends QueryService<Goods> {
     private final GoodsRepository goodsRepository;
+
+    private final GoodsValidator goodsValidator;
 
 //    public GoodsService(GoodsRepository goodsRepository) {
 //        this.goodsRepository = goodsRepository;
@@ -41,6 +47,29 @@ public class GoodsService extends QueryService<Goods> {
         Page<Goods> page = this.goodsRepository.findAll(specification, pageable);
 
         return page;
+    }
+
+    public Page<GoodsDTO> findAllBySpecification(SearchAllGoodSpecRequest request) throws ServiceException, BusinessException {
+
+        try {
+            // Validate
+            this.goodsValidator.validateSearch(request);
+
+//            if(request != null) {
+//                throw new BusinessException(ResponseStatusCodeEnum.FEE_NOTFOUND);
+//            }
+            Integer integer = 1/0;
+
+        } catch (ServiceException | Exception e) {
+            throw e;
+        }
+
+
+//        Specification specification = this.create(criteria);
+//        Page<Goods> page = this.goodsRepository.findAll(specification, pageable);
+//
+//        return page;
+        return null;
     }
 
 
