@@ -1,4 +1,4 @@
-package com.example.demo.util;
+package com.example.demo.util.common.util;
 
 import javax.annotation.Nullable;
 
